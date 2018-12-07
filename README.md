@@ -16,6 +16,10 @@ webdriver-manager update --proxy="http://internetpu:8085" --ignore_ssl
 
 webdriver-manager start
 
+webdriver-manager update --ie --proxy="http://internetpu:8085" --ignore_ssl 
+
+ webdriver-manager update --ie --versions.standalone=3.4.0 --versions.ie=3.4.0 --proxy="http://internetpu:8085" --ignore_ssl
+
 
 
 

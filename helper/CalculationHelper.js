@@ -3,9 +3,7 @@ var url = browser.params.env;
 module.exports = function() {
 
    this.get = function() {
-      WebDriver driver = new InternetExplorerDriver();
-driver.get("http://seleniumhq.org");
-    //  browser.get(url);
+     browser.get(url);
     };
 
    this.clickButton = function(locator) {

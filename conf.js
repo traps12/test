@@ -10,13 +10,8 @@ exports.config = {
     params: {
         env:url
     },
-  multiCapabilities: [ {
-    'browserName': 'internet explorer'
-}],
-localSeleniumStandaloneOpts : {
-    jvmArgs : ["-Dwebdriver.ie.driver=./IEDriverServer3.141.0.exe"] // e.g: "node_modules/protractor/node_modules/webdriver-manager/selenium/IEDriverServer_x64_X.XX.X.exe"
-  },
-    framework: "jasmine2" ,
+ 
+  framework: "jasmine2" ,
     onPrepare: function() {
         jasmine.getEnv().addReporter(
           new Jasmine2HtmlReporter({

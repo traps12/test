@@ -7,21 +7,14 @@ module.exports = function() {
     var totalsum = element(by.binding("latest"));
 
     this.setFirstField = function(name) {
-      try{
-      calculationHelper.sendData(firstfield, name);
-     
-      }
-      catch(e){
-        console.log("In side catch")
-      }
-    };
-
-
+     calculationHelper.sendData(firstfield, name);
+     }
+   
     this.setSecondField = function(name) {
       calculationHelper.sendData(secondfield, name);
       };
 
-      this.buttonClick = function() {
+    this.buttonClick = function() {
         calculationHelper.clickButton(button);
        };
   
