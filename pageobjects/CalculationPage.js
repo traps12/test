@@ -8,7 +8,7 @@ module.exports = function() {
 
     this.setFirstField = function(name) {
      calculationHelper.sendData(firstfield, name);
-     }
+     };
    
     this.setSecondField = function(name) {
       calculationHelper.sendData(secondfield, name);

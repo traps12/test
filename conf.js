@@ -8,10 +8,12 @@ exports.config = {
         showColors: true, // Use colors in the command line report.
     },
     params: {
-        env:url
+        env:url,
     },
- 
-  framework: "jasmine2" ,
+    multiCapabilities: [{
+        'browserName':(process.env.TEST_BROWSER_NAME || 'chrome')
+      }],
+   framework: "jasmine2" ,
     onPrepare: function() {
         jasmine.getEnv().addReporter(
           new Jasmine2HtmlReporter({

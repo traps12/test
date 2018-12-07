@@ -7,7 +7,7 @@ module.exports = function() {
     };
 
    this.clickButton = function(locator) {
-    locator.click();
+      locator.click();
     };
 
    this.sendData = function(locator, data) {
@@ -17,5 +17,5 @@ module.exports = function() {
 
    this.addition = function(num1, num2) {
      return (num1 + num2).toString(); 
-   }
+   };
 };
