@@ -8,6 +8,7 @@
     "eslint": "^5.9.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "jasmine-reporters": "^2.0.0",
+    "protractor": "^5.4.1",
     "protractor-jasmine2-html-reporter": "^0.0.7"
   },
   "devDependencies": {
