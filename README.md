@@ -6,8 +6,7 @@ Run below command
 npm install
 
 Now start up a server with::
-
-webdriver-manager update --proxy=<proxy> --ignore_ssl 
+webdriver-manager update --proxy='proxy' --ignore_ssl 
 
 webdriver-manager start
 
