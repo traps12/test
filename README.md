@@ -6,17 +6,23 @@ Run below command
 npm install
 
 Now start up a server with::
-
-webdriver-manager update --proxy="http://internetpu:8085" --ignore_ssl 
+webdriver-manager update --proxy='proxy' --ignore_ssl 
 
 webdriver-manager start
 
-To Run any test:
+To Run any test on specific environment:
 
-npm run test
+npm run <test env>
 
-To run test specific browser:
+To run any test using browser stack:
 
-set TEST_BROWSER_NAME=chrome&npm run test
+Run test on specific browser on localbrowser stack:
+
+npm run localtest
+
+Run test on mutiple browser on localbrowser stack:
+
+npm run paralleltest
+
 
 
