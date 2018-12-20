@@ -28,6 +28,12 @@ $npm run <test env>
 npm run localtest
 ```
 
+### Run test on single browser on browser stack cloud:
+
+```
+npm run singletest
+```
+
 ### Run test on mutiple browser on localbrowser stack:
 
 ```
