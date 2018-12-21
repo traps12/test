@@ -1,5 +1,5 @@
 var browserstack = require('browserstack-local');
-const config = require('config'); 
+const config = require('config');
 var url = config.get("web.url");
 var globalTunnel = require('global-tunnel-ng');
 globalTunnel.initialize({
@@ -21,7 +21,7 @@ exports.config = {
     },
     capabilities: {
         'browserstack.user': 'truptigarotkar1',
-        'browserstack.key': 'FotasUZMqVHy848ZhqxE',
+        'browserstack.key': 'FotasUZMqVHy848Zhqx',
         'browserstack.debug': true,
         'browserName': 'Chrome',
       },
@@ -32,7 +32,4 @@ exports.config = {
    globalTunnel.end();
   });
 }
-}; 
-
-
-  
+};
