@@ -1,8 +1,9 @@
 var browserstack = require('browserstack-local');
-const config = require('config'); 
+const config = require('config');
 var url = config.get("web.url");
 let bs_local = new browserstack.Local();
 var globalTunnel = require('global-tunnel-ng');
+
 globalTunnel.initialize({
   host: 'internetpu',
   port: 8085,
@@ -27,12 +28,13 @@ exports.config = {
         'browserstack.debug': true,
         'browserName': 'firefox',
       },
-      
+
  // Code to start browserstack local before start of test
  beforeLaunch: function(){
   console.log("Connecting local");
   return new Promise(function(resolve, reject){
-    bs_local.start({'key': 'FotasUZMqVHy848ZhqxE','proxy-host': 'internetpu', 'proxy-port': '8085' }, function(error) {
+    // bs_local.start({'key': 'FotasUZMqVHy848ZhqxE','proxy-host': 'internetpu', 'proxy-port': '8085' }, function(error) {
+    bs_local.start({'key': 'FotasUZMqVHy848ZhqxE'}, function(error) {
     if (error) {
         console.log(error)
         return reject(error);}
@@ -50,7 +52,4 @@ exports.config = {
    bs_local.stop(resolve);
   });
 }
-}; 
-
-
-  
+};
