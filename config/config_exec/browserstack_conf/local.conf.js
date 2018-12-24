@@ -11,8 +11,6 @@ globalTunnel.initialize({
 
 exports.config = {
    specs: ["../spec/TodoSpec.js"],
-   //seleniumAddress: 'http://hub-cloud.browserstack.com/wd/hub',
-  // webDriverProxy:'http://internetpu:8085',
    jasmineNodeOpts: {
         showColors: true, // Use colors in the command line report.
         defaultTimeoutInterval: 1000000,
@@ -41,7 +39,6 @@ exports.config = {
     });
   });
 },
-
 
  //Code to stop browserstack local after end of test
  afterLaunch: function(){

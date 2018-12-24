@@ -21,8 +21,8 @@ exports.config = {
         env:url,
     },
     'commonCapabilities': {
-        'browserstack.user': 'truptigarotkar1',
-        'browserstack.key': 'FotasUZMqVHy848ZhqxE'
+      'browserstack.user': 'vishal538',
+      'browserstack.key': 'NqQyPLgqydEAegmxE5uh',
       },
 
       'multiCapabilities': [{

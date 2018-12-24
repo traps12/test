@@ -17,7 +17,7 @@
     "config": "^3.0.0"
   },
   "scripts": {
-    "test": "set NODE_ENV=test&node node_modules/protractor/bin/protractor conf/conf.js",
+    "test": "set NODE_ENV=test&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js",
     "production": "set NODE_ENV=production&node node_modules/protractor/bin/protractor conf.js",
     "localtest": "set NODE_ENV=production&node node_modules/protractor/bin/protractor conf/local.conf.js",
     "singletest": "set NODE_ENV=production&node node_modules/protractor/bin/protractor conf/single.conf.js",

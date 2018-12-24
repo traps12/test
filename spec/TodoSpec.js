@@ -7,7 +7,7 @@ var calculationPage = new CalculationPage();
 var calculationHelper = new CalculationHelper();
 
 describe("Calculation Addition Page", function() {
-    it("should able to add two valid number", function() {
+    it("should able to add two valid number",function() {
       calculationHelper.get();
       calculationPage.setFirstField(number1);
       calculationPage.setSecondField(number2);
@@ -16,6 +16,7 @@ describe("Calculation Addition Page", function() {
     });
 
     it("should not able to add two invalid number", function() {
+      calculationHelper.get();
       calculationPage.setFirstField('d');
       calculationPage.setSecondField('f');
       calculationPage.buttonClick();
