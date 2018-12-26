@@ -1,12 +1,12 @@
-var browserstack = require('browserstack-local');
-
-const config = require('config');
+process.env["NODE_CONFIG_DIR"] ="./config/config_env";
+let config = require('config');
 var url = config.get("web.url");
 var globalTunnel = require('global-tunnel-ng');
-globalTunnel.initialize({
-  host: 'internetpu',
-  port: 8085,
+credential = require("../credentials.js")
 
+globalTunnel.initialize({
+  host: credential.proxy.host,
+  port: credential.proxy.port,
 });
 
 exports.config = {
@@ -21,8 +21,8 @@ exports.config = {
         env:url,
     },
     'commonCapabilities': {
-      'browserstack.user': 'vishal538',
-      'browserstack.key': 'NqQyPLgqydEAegmxE5uh',
+      'browserstack.user': credential.browserstack.username,
+      'browserstack.key':  credential.browserstack.key,
       },
 
       'multiCapabilities': [{

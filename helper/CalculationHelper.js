@@ -5,11 +5,7 @@ var myProfile = new FirefoxProfile();
 
 module.exports = function() {
 
-   this.get = async function() {
-      await browser.get("http://juliemr.github.io/protractor-demo/");
-    };
-
-   this.clickButton = function(locator) {
+  this.clickButton = function(locator) {
       locator.click();
     };
 

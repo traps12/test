@@ -1,13 +1,9 @@
 var browserstack = require('browserstack-local');
-const config = require('config'); 
+process.env["NODE_CONFIG_DIR"] ="./config/config_env";
+let config = require('config');
 var url = config.get("web.url");
 let bs_local = new browserstack.Local();
-var globalTunnel = require('global-tunnel-ng');
-globalTunnel.initialize({
-  host: 'internetpu',
-  port: 8085,
-
-});
+credential = require("../credentials.js")
 
 exports.config = {
    specs: ["../spec/TodoSpec.js"],
@@ -19,18 +15,17 @@ exports.config = {
         env:url,
     },
     capabilities: {
-        'browserstack.user': 'truptigarotkar1',
-        'browserstack.key': 'FotasUZMqVHy848ZhqxE',
-        'browserstack.local': true,
-        'browserstack.debug': true,
-        'browserName': 'firefox',
+      'browserstack.user': credential.browserstack.username,
+      'browserstack.key': credential.browserstack.key,
+      'browserstack.local': true,
+      'browserstack.debug': true,
+      'browserName': 'firefox',
       },
       
- // Code to start browserstack local before start of test
- beforeLaunch: function(){
+beforeLaunch: function(){
   console.log("Connecting local");
   return new Promise(function(resolve, reject){
-    bs_local.start({'key': 'FotasUZMqVHy848ZhqxE','proxy-host': 'internetpu', 'proxy-port': '8085' }, function(error) {
+    bs_local.start({'key': exports.config.capabilities['browserstack.key'],'proxy-host': credential.proxy.host, 'proxy-port': credential.proxy.port }, function(error) {
     if (error) {
         console.log(error)
         return reject(error);}
@@ -40,10 +35,8 @@ exports.config = {
   });
 },
 
- //Code to stop browserstack local after end of test
  afterLaunch: function(){
   return new Promise(function(resolve, reject){
-   globalTunnel.end();
    bs_local.stop(resolve);
   });
 }

@@ -1,21 +1,33 @@
-var globalTunnel = require("global-tunnel-ng");
+process.env["NODE_CONFIG_DIR"] ="./config/config_env";
+let config = require('config');
+var url = config.get("web.url");
+credential = require("../credentials.js")
+var globalTunnel = require('global-tunnel-ng');
 globalTunnel.initialize({
-  host: "internetpu",
-  port: 8085,
+  host: credential.proxy.host,
+  port: credential.proxy.port,
 });
-var globalConf = require("../common.conf.js");
-globalConf.specs.push("../../../spec/TodoSpec.js");    
-globalConf.capabilities= {"browserstack.user":"vishal538","browserstack.key":"NqQyPLgqydEAegmxE5uh","browserstack.debug":true,"browserName":"Chrome"},
-globalConf.seleniumAddress = "http://hub-cloud.browserstack.com/wd/hub",
-exports.config = globalConf;  
+
+exports.config = {
+   specs: ["../../../spec/TodoSpec.js"],
+   seleniumAddress: credential.browserstack.cloudAddress,
+
+   jasmineNodeOpts: {
+        defaultTimeoutInterval: 1000000,
+    },
+    params: {
+        env:url,
+    },
+    capabilities: {
+        'browserstack.user': credential.browserstack.username,
+        'browserstack.key': credential.browserstack.key,
+        'browserstack.debug': true,
+        'browserName': 'Chrome',
+      },
 
 afterLaunch: function(){
-        return new Promise(function(resolve, reject){
-         globalTunnel.end();
-        });
-      }
-
-
-
-
-
+  return new Promise(function(resolve, reject){
+     globalTunnel.end();
+  });
+}
+};
