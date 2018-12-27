@@ -3,13 +3,13 @@ process.env["NODE_CONFIG_DIR"] ="./config/config_env";
 let config = require('config');
 var url = config.get("web.url");
 let bs_local = new browserstack.Local();
-credential = require("../credentials.js")
+credential = require("../../credentials.js")
 
 exports.config = {
-   specs: ["../spec/TodoSpec.js"],
+   specs: ["../../../spec/TodoSpec.js"],
    jasmineNodeOpts: {
         showColors: true, // Use colors in the command line report.
-        defaultTimeoutInterval: 1000000,
+        defaultTimeoutInterval: credential.timeout,
     },
     params: {
         env:url,
@@ -19,13 +19,14 @@ exports.config = {
       'browserstack.key': credential.browserstack.key,
       'browserstack.local': true,
       'browserstack.debug': true,
-      'browserName': 'firefox',
+      'browserName': 'chrome',
       },
       
 beforeLaunch: function(){
   console.log("Connecting local");
   return new Promise(function(resolve, reject){
-    bs_local.start({'key': exports.config.capabilities['browserstack.key'],'proxy-host': credential.proxy.host, 'proxy-port': credential.proxy.port }, function(error) {
+   credential.proxy.flag ? bs_local_args = {'key': exports.config.capabilities['browserstack.key'],'proxy-host': credential.proxy.host, 'proxy-port': credential.proxy.port }:bs_local_args = {'key': exports.config.capabilities['browserstack.key']}
+    bs_local.start(bs_local_args, function(error) {
     if (error) {
         console.log(error)
         return reject(error);}

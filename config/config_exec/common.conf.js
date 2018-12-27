@@ -6,8 +6,7 @@ var url = config.get("web.url")
 module.exports = {
     specs: [],
     jasmineNodeOpts: {
-        showColors: true,
-        defaultTimeoutInterval: 1000000,
+        showColors: true
     },
     params: {
         env:url,

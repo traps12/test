@@ -2,20 +2,21 @@ process.env["NODE_CONFIG_DIR"] ="./config/config_env";
 let config = require('config');
 var url = config.get("web.url");
 var globalTunnel = require('global-tunnel-ng');
-credential = require("../credentials.js")
+credential = require("../../credentials.js")
 
+if (credential.proxy.flag){
 globalTunnel.initialize({
   host: credential.proxy.host,
   port: credential.proxy.port,
 });
+}
 
 exports.config = {
-    specs: ["../spec/TodoSpec.js"],
-    seleniumAddress: 'http://hub-cloud.browserstack.com/wd/hub',
-
+    specs: ["../../../spec/TodoSpec.js"],
+    seleniumAddress: credential.browserstack.cloudAddress,
     jasmineNodeOpts: {
-        showColors: true, // Use colors in the command line report.
-        defaultTimeoutInterval: 1000000
+        showColors: true, 
+        defaultTimeoutInterval: credential.timeout,
     },
     params: {
         env:url,
@@ -34,12 +35,14 @@ exports.config = {
       }],
 
       afterLaunch: function(){
-       return new Promise(function(resolve, reject){
-        globalTunnel.end();
-       });
-     }
-    };
+        if (credential.proxy.flag){
+        return new Promise(function(resolve, reject){
+           globalTunnel.end();
+        });
+      }
+    }
+  };
 
-    exports.config.multiCapabilities.forEach(function(caps){
-        for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
-      });
+exports.config.multiCapabilities.forEach(function(caps){
+    for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
+});
