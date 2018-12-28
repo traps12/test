@@ -2,8 +2,8 @@ version: '3'
 
 services:
   integration-test:
-    image: weboaks/node-karma-protractor-chrome
+    build: .
     volumes:
-      - .:/protractor
+      - ./:/protractor
     working_dir: /protractor
-    command: ["npm","test"]
+    command: ["npm", "test"]
