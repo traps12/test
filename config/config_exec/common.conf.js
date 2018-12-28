@@ -1,18 +1,16 @@
 var Jasmine2HtmlReporter = require("protractor-jasmine2-html-reporter");
-const config = require('config'); 
+process.env["NODE_CONFIG_DIR"] ="./config/config_env";
+let config = require('config'); 
 var url = config.get("web.url")
 
-exports.config = {
-    specs: ["../spec/TodoSpec.js"],
+module.exports = {
+    specs: [],
     jasmineNodeOpts: {
-        showColors: true, // Use colors in the command line report.
+        showColors: true
     },
     params: {
         env:url,
     },
-    multiCapabilities: [{
-        'browserName':(process.env.TEST_BROWSER_NAME || 'chrome')
-      }],
    framework: "jasmine2" ,
     onPrepare: function() {
         jasmine.getEnv().addReporter(
@@ -20,5 +18,6 @@ exports.config = {
             savePath: "target/screenshots"
           })
         );
-     }
-  };
+     },
+   
+};
