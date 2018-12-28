@@ -3,10 +3,11 @@ const config = require('config');
 var url = config.get("web.url")
 
 exports.config = {
-    chromeDriver: '/usr/bin/chromedriver',
+    directConnect: true,
     specs: ["../spec/TodoSpec.js"],
     jasmineNodeOpts: {
         showColors: true, // Use colors in the command line report.
+        defaultTimeoutInterval: 1000000
     },
     params: {
         env:url,
@@ -24,5 +25,6 @@ exports.config = {
             savePath: "target/screenshots"
           })
         );
+        browser.driver.manage().deleteAllCookies();
      }
   };

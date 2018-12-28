@@ -1,4 +1,4 @@
-FROM node:8-stretch
+FROM node
 
 RUN apt-get update && \
 DEBIAN_FRONTEND="noninteractive" \
@@ -8,6 +8,11 @@ libgconf-2-4 \
 openjdk-8-jre-headless \
 && rm -rf /var/lib/apt/lists/*
 
-USER node
+# USER node
 
-ENV CHROME_BIN /usr/bin/chromium
+# RUN mkdir -p /protractor && \
+# npm install -g protractor
+
+# RUN webdriver-manager update
+
+# WORKDIR /protractor
