@@ -8,18 +8,18 @@
     "eslint": "^5.9.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "firefox-profile": "^1.2.0",
-    "jasmine-reporters": "^2.0.0",
+    "global-tunnel-ng": "^2.7.1",
     "protractor": "^5.4.1",
-    "protractor-jasmine2-html-reporter": "^0.0.7",
-    "global-tunnel-ng": "^2.7.1"
+    "protractor-jasmine2-html-reporter": "^0.0.7"
   },
   "devDependencies": {
-    "config": "^3.0.0"
+    "config": "^3.0.0",
+    "protractor-beautiful-reporter": "^1.2.7"
   },
   "scripts": {
     "pretest": "node node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update",
-    "test": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/docker_conf/docker-conf.js",
-    "simple-test": "set NODE_ENV=test&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js",
+    "test1": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/docker_conf/docker-conf.js",
+    "test": "set NODE_ENV=test&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js",
     "production": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js",
     "localtest": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/browserstack_conf/local.conf.js",
     "singletest": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/browserstack_conf/single.conf.js",
