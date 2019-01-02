@@ -10,7 +10,7 @@ beforeEach(function() {
 });
 
 describe("Calculation Addition Page", function() {
-    it("should able to add two valid number",function() {
+    it("should able to add two valid number @smoke" ,function() {
       calculationPage.setFirstField(number1);
       calculationPage.setSecondField(number2);
       calculationPage.buttonClick();
