@@ -18,8 +18,8 @@
   },
   "scripts": {
     "pretest": "node node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update",
-    "test1": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/docker_conf/docker-conf.js",
-    "test": "set NODE_ENV=test&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js",
+    "test": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/docker_conf/docker-conf.js",
+    "simpletest": "set NODE_ENV=test&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js --grep=@smoke",
     "production": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/protractor_conf/simple.conf.js",
     "localtest": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/browserstack_conf/local.conf.js",
     "singletest": "set NODE_ENV=production&node node_modules/protractor/bin/protractor config/config_exec/browserstack_conf/single.conf.js",
